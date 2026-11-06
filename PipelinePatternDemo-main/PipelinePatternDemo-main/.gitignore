@@ -1,0 +1,24 @@
+## Build results
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## .NET
+*.dll
+*.pdb
+*.exe
+*.cache
+*.log
+
+## NuGet
+*.nupkg
+**/[Pp]ackages/**
+project.nuget.cache

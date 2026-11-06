@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950" width="1200" height="950">
+  <defs>
+    <linearGradient id="skyG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="purpG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="orgG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="blueG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="greenG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#16a34a" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="tealG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#42b883" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#35495e" stop-opacity="1"/>
+    </linearGradient>
+    <marker id="aSky" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0ea5e9"/>
+    </marker>
+    <marker id="aPurp" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a855f7"/>
+    </marker>
+    <marker id="aOrg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f97316"/>
+    </marker>
+    <marker id="aBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="aGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#22c55e"/>
+    </marker>
+    <marker id="aTeal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#42b883"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="1200" height="950" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">Loan Eligibility Pipeline Pattern</text>
+  <text x="600" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">.NET 10 | Minimal API | Dependency Injection | Scalar OpenAPI</text>
+
+  <!-- ====== Flow Lines (background + foreground) ====== -->
+
+  <!-- Client → API -->
+  <path d="M 600 138 L 600 175" stroke="#e0f2fe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 600 138 L 600 175" stroke="#0ea5e9" stroke-width="3" fill="none" marker-end="url(#aSky)" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <text x="615" y="162" font-family="monospace" font-size="9" font-weight="bold" fill="#0ea5e9">HTTP POST</text>
+
+  <!-- API → Service -->
+  <path d="M 600 248 L 600 285" stroke="#f3e8ff" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 600 248 L 600 285" stroke="#a855f7" stroke-width="3" fill="none" marker-end="url(#aPurp)" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <text x="615" y="272" font-family="monospace" font-size="9" font-weight="bold" fill="#a855f7">LoanApplication</text>
+
+  <!-- Service → Pipeline -->
+  <path d="M 600 358 L 600 395" stroke="#fff7ed" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 600 358 L 600 395" stroke="#f97316" stroke-width="3" fill="none" marker-end="url(#aOrg)" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <text x="615" y="382" font-family="monospace" font-size="9" font-weight="bold" fill="#f97316">ExecuteAsync()</text>
+
+  <!-- Pipeline → R1 (curve) -->
+  <path d="M 500 488 C 500 515, 248 510, 248 540" stroke="#dbeafe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 500 488 C 500 515, 248 510, 248 540" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#aBlue)" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <text x="340" y="505" font-family="monospace" font-size="9" font-weight="bold" fill="#3b82f6">foreach rule</text>
+
+  <!-- R1 → R2 -->
+  <path d="M 328 585 L 344 585" stroke="#dcfce7" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 328 585 L 344 585" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#aGreen)" stroke-linecap="round" stroke-dasharray="8 4"/>
+
+  <!-- R2 → R3 -->
+  <path d="M 504 585 L 520 585" stroke="#dcfce7" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 504 585 L 520 585" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#aGreen)" stroke-linecap="round" stroke-dasharray="8 4"/>
+
+  <!-- R3 → R4 -->
+  <path d="M 680 585 L 696 585" stroke="#dcfce7" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 680 585 L 696 585" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#aGreen)" stroke-linecap="round" stroke-dasharray="8 4"/>
+
+  <!-- R4 → R5 -->
+  <path d="M 856 585 L 872 585" stroke="#dcfce7" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 856 585 L 872 585" stroke="#22c55e" stroke-width="3" fill="none" marker-end="url(#aGreen)" stroke-linecap="round" stroke-dasharray="8 4"/>
+
+  <!-- R5 → Context (curve) -->
+  <path d="M 952 630 C 952 660, 700 660, 700 685" stroke="#ccfbf1" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 952 630 C 952 660, 700 660, 700 685" stroke="#42b883" stroke-width="3" fill="none" marker-end="url(#aTeal)" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <text x="860" y="658" font-family="monospace" font-size="9" font-weight="bold" fill="#42b883">writes results</text>
+
+  <!-- ====== Module Cards ====== -->
+
+  <!-- 1. Frontend Client -->
+  <g transform="translate(430, 68)">
+    <rect x="0" y="0" width="340" height="70" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="32" rx="12" fill="url(#skyG)"/>
+    <rect x="0" y="18" width="340" height="14" fill="url(#skyG)"/>
+    <text x="170" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Frontend Client</text>
+    <text x="170" y="50" text-anchor="middle" font-family="monospace" font-size="10" fill="#0ea5e9">index.html</text>
+    <text x="170" y="63" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">CSS + JavaScript | Scalar API Docs</text>
+  </g>
+
+  <!-- 2. Minimal API Endpoint -->
+  <g transform="translate(430, 178)">
+    <rect x="0" y="0" width="340" height="70" rx="12" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="32" rx="12" fill="url(#purpG)"/>
+    <rect x="0" y="18" width="340" height="14" fill="url(#purpG)"/>
+    <text x="170" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Minimal API</text>
+    <text x="170" y="50" text-anchor="middle" font-family="monospace" font-size="10" fill="#a855f7">POST /api/loan-evaluation</text>
+    <text x="170" y="63" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Request DTO &#x2192; Response DTO</text>
+  </g>
+
+  <!-- 3. LoanEligibilityService -->
+  <g transform="translate(430, 288)">
+    <rect x="0" y="0" width="340" height="70" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="32" rx="12" fill="url(#orgG)"/>
+    <rect x="0" y="18" width="340" height="14" fill="url(#orgG)"/>
+    <text x="170" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">LoanEligibilityService</text>
+    <text x="170" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#f97316">Service Layer</text>
+    <text x="170" y="63" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">EvaluateApplicationAsync()</text>
+  </g>
+
+  <!-- 4. EligibilityPipeline -->
+  <g transform="translate(430, 398)">
+    <rect x="0" y="0" width="340" height="90" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="32" rx="12" fill="url(#blueG)"/>
+    <rect x="0" y="18" width="340" height="14" fill="url(#blueG)"/>
+    <text x="170" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">EligibilityPipeline</text>
+    <text x="170" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6">Sequential Rule Execution</text>
+    <text x="85" y="70" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">stopOnRejection</text>
+    <text x="255" y="70" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">DI: IEnumerable&lt;IRule&gt;</text>
+    <rect x="20" y="76" width="140" height="10" rx="3" fill="#dbeafe"/>
+    <text x="90" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#3b82f6">foreach + try/catch</text>
+    <rect x="180" y="76" width="140" height="10" rx="3" fill="#dbeafe"/>
+    <text x="250" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#3b82f6">EligibilityResult</text>
+  </g>
+
+  <!-- IEligibilityRule interface dashed box -->
+  <g transform="translate(148, 525)">
+    <rect x="0" y="0" width="904" height="115" rx="10" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6 3" opacity="0.6"/>
+    <rect x="355" y="-10" width="200" height="20" rx="4" fill="#f0fdf4" stroke="#22c55e" stroke-width="1"/>
+    <text x="455" y="4" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#22c55e">IEligibilityRule</text>
+  </g>
+
+  <!-- 5a. CreditScoreRule -->
+  <g transform="translate(168, 540)">
+    <rect x="0" y="0" width="160" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="28" rx="10" fill="url(#greenG)"/>
+    <rect x="0" y="16" width="160" height="12" fill="url(#greenG)"/>
+    <text x="80" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Credit Score</text>
+    <text x="80" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">CreditScoreRule</text>
+    <text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&lt; 500 &#x2192; Reject</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&lt; 670 &#x2192; Warning</text>
+    <rect x="55" y="76" width="50" height="12" rx="3" fill="#dcfce7"/>
+    <text x="80" y="85" text-anchor="middle" font-family="monospace" font-size="8" fill="#16a34a">Order: 1</text>
+  </g>
+
+  <!-- 5b. IncomeValidationRule -->
+  <g transform="translate(344, 540)">
+    <rect x="0" y="0" width="160" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="28" rx="10" fill="url(#greenG)"/>
+    <rect x="0" y="16" width="160" height="12" fill="url(#greenG)"/>
+    <text x="80" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Income</text>
+    <text x="80" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">IncomeValidationRule</text>
+    <text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&lt; 30% Loan &#x2192; Reject</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&lt; 1.5x &#x2192; Warning</text>
+    <rect x="55" y="76" width="50" height="12" rx="3" fill="#dcfce7"/>
+    <text x="80" y="85" text-anchor="middle" font-family="monospace" font-size="8" fill="#16a34a">Order: 2</text>
+  </g>
+
+  <!-- 5c. EmploymentHistoryRule -->
+  <g transform="translate(520, 540)">
+    <rect x="0" y="0" width="160" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="28" rx="10" fill="url(#greenG)"/>
+    <rect x="0" y="16" width="160" height="12" fill="url(#greenG)"/>
+    <text x="80" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Employment</text>
+    <text x="80" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">EmploymentHistoryRule</text>
+    <text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&lt; 1 year &#x2192; Reject</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&lt; 2 years &#x2192; Warning</text>
+    <rect x="55" y="76" width="50" height="12" rx="3" fill="#dcfce7"/>
+    <text x="80" y="85" text-anchor="middle" font-family="monospace" font-size="8" fill="#16a34a">Order: 3</text>
+  </g>
+
+  <!-- 5d. DebtToIncomeRatioRule -->
+  <g transform="translate(696, 540)">
+    <rect x="0" y="0" width="160" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="28" rx="10" fill="url(#greenG)"/>
+    <rect x="0" y="16" width="160" height="12" fill="url(#greenG)"/>
+    <text x="80" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">DTI Ratio</text>
+    <text x="80" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">DebtToIncomeRatioRule</text>
+    <text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&gt; 43% &#x2192; Reject</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">&gt; 36% &#x2192; Warning</text>
+    <rect x="55" y="76" width="50" height="12" rx="3" fill="#dcfce7"/>
+    <text x="80" y="85" text-anchor="middle" font-family="monospace" font-size="8" fill="#16a34a">Order: 4</text>
+  </g>
+
+  <!-- 5e. FraudCheckRule -->
+  <g transform="translate(872, 540)">
+    <rect x="0" y="0" width="160" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="28" rx="10" fill="url(#greenG)"/>
+    <rect x="0" y="16" width="160" height="12" fill="url(#greenG)"/>
+    <text x="80" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Fraud Check</text>
+    <text x="80" y="44" text-anchor="middle" font-family="monospace" font-size="9" fill="#22c55e">FraudCheckRule</text>
+    <text x="80" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Flagged &#x2192; Reject</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Loan &gt; 2x Income &#x2192; Warn</text>
+    <rect x="55" y="76" width="50" height="12" rx="3" fill="#dcfce7"/>
+    <text x="80" y="85" text-anchor="middle" font-family="monospace" font-size="8" fill="#16a34a">Order: 5</text>
+  </g>
+
+  <!-- 6. EligibilityContext -->
+  <g transform="translate(430, 685)">
+    <rect x="0" y="0" width="340" height="75" rx="12" fill="#f0fdf4" stroke="#42b883" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="32" rx="12" fill="url(#tealG)"/>
+    <rect x="0" y="18" width="340" height="14" fill="url(#tealG)"/>
+    <text x="170" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">EligibilityContext</text>
+    <text x="113" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#42b883">Warnings</text>
+    <text x="227" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#42b883">Rejections</text>
+    <text x="113" y="65" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">List&lt;string&gt;</text>
+    <text x="227" y="65" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">List&lt;string&gt;</text>
+  </g>
+
+  <!-- ====== Process Description ====== -->
+  <g transform="translate(40, 800)">
+    <rect x="0" y="0" width="540" height="135" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="270" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">Data Flow</text>
+
+    <g transform="translate(18, 38)">
+      <circle cx="8" cy="8" r="6" fill="#0ea5e9"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="10.5" fill="#1e293b">Client submits LoanApplication via HTTP POST</text>
+    </g>
+    <g transform="translate(18, 58)">
+      <circle cx="8" cy="8" r="6" fill="#a855f7"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="10.5" fill="#1e293b">API maps Request DTO to domain model</text>
+    </g>
+    <g transform="translate(18, 78)">
+      <circle cx="8" cy="8" r="6" fill="#f97316"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="10.5" fill="#1e293b">Service delegates to EligibilityPipeline</text>
+    </g>
+    <g transform="translate(18, 98)">
+      <circle cx="8" cy="8" r="6" fill="#3b82f6"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="10.5" fill="#1e293b">Pipeline iterates all IEligibilityRule via DI</text>
+    </g>
+    <g transform="translate(18, 118)">
+      <circle cx="8" cy="8" r="6" fill="#22c55e"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="10.5" fill="#1e293b">Each rule writes Warnings/Rejections to Context</text>
+    </g>
+  </g>
+
+  <!-- ====== Legend ====== -->
+  <g transform="translate(620, 800)">
+    <rect x="0" y="0" width="540" height="55" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="270" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b">LEGEND</text>
+
+    <rect x="15" y="30" width="24" height="14" rx="3" fill="#0ea5e9"/>
+    <text x="44" y="42" font-family="Arial, sans-serif" font-size="9.5" fill="#1e293b">Client</text>
+
+    <rect x="95" y="30" width="24" height="14" rx="3" fill="#a855f7"/>
+    <text x="124" y="42" font-family="Arial, sans-serif" font-size="9.5" fill="#1e293b">API</text>
+
+    <rect x="160" y="30" width="24" height="14" rx="3" fill="#f97316"/>
+    <text x="189" y="42" font-family="Arial, sans-serif" font-size="9.5" fill="#1e293b">Service</text>
+
+    <rect x="245" y="30" width="24" height="14" rx="3" fill="#3b82f6"/>
+    <text x="274" y="42" font-family="Arial, sans-serif" font-size="9.5" fill="#1e293b">Pipeline</text>
+
+    <rect x="335" y="30" width="24" height="14" rx="3" fill="#22c55e"/>
+    <text x="364" y="42" font-family="Arial, sans-serif" font-size="9.5" fill="#1e293b">Rules</text>
+
+    <rect x="410" y="30" width="24" height="14" rx="3" fill="#42b883"/>
+    <text x="439" y="42" font-family="Arial, sans-serif" font-size="9.5" fill="#1e293b">Context</text>
+  </g>
+
+  <!-- ====== Key Models ====== -->
+  <g transform="translate(620, 870)">
+    <rect x="0" y="0" width="540" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="270" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b">KEY MODELS</text>
+
+    <text x="20" y="38" font-family="monospace" font-size="9.5" fill="#3b82f6">LoanApplication</text>
+    <text x="20" y="52" font-family="Arial, sans-serif" font-size="8.5" fill="#94a3b8">Name, CreditScore, Income, Debt, Amount, Employment, FraudFlag</text>
+
+    <text x="290" y="38" font-family="monospace" font-size="9.5" fill="#42b883">EligibilityResult</text>
+    <text x="290" y="52" font-family="Arial, sans-serif" font-size="8.5" fill="#94a3b8">IsApproved, RejectionReasons[], Warnings[], ContextData{}</text>
+  </g>
+
+</svg>

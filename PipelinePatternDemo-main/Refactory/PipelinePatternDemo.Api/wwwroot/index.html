@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Elegibilidade de Empréstimo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Página de demonstração: escolha um caso pronto ou preencha o formulário para ver o pipeline decidir. -->
+    <div class="container">
+        <header>
+            <h1>Sistema de Elegibilidade de Empréstimo</h1>
+            <p class="subtitle">Demonstração do Pipeline Pattern</p>
+        </header>
+
+        <main>
+            <section class="examples">
+                <h2>Casos de Exemplo</h2>
+                <div class="example-grid">
+                    <button type="button" class="example-card ex-rejected" data-case="0">
+                        <span class="ex-tag rejected">REPROVADO</span>
+                        <strong>John Doe</strong>
+                        <span>Score 550 | $30K/ano | Empréstimo $250K</span>
+                        <span class="ex-desc">Score baixo e renda insuficiente</span>
+                    </button>
+                    <button type="button" class="example-card ex-rejected" data-case="1">
+                        <span class="ex-tag rejected">REPROVADO</span>
+                        <strong>Jane Smith</strong>
+                        <span>Score 720 | $85K/ano | Empréstimo $200K</span>
+                        <span class="ex-desc">Sinalizado como fraude</span>
+                    </button>
+                    <button type="button" class="example-card ex-warning" data-case="2">
+                        <span class="ex-tag warning">COM AVISOS</span>
+                        <strong>Bob Johnson</strong>
+                        <span>Score 650 | $75K/ano | Empréstimo $150K</span>
+                        <span class="ex-desc">Score no limite, pouco tempo de emprego</span>
+                    </button>
+                    <button type="button" class="example-card ex-approved" data-case="3">
+                        <span class="ex-tag approved">APROVADO</span>
+                        <strong>Alice Brown</strong>
+                        <span>Score 780 | $120K/ano | Empréstimo $200K</span>
+                        <span class="ex-desc">Perfil excelente, aprovado sem ressalvas</span>
+                    </button>
+                    <button type="button" class="example-card ex-rejected" data-case="4">
+                        <span class="ex-tag rejected">REPROVADO</span>
+                        <strong>Mike Wilson</strong>
+                        <span>Score 680 | $45K/ano | Empréstimo $300K</span>
+                        <span class="ex-desc">Endividamento alto e valor excessivo</span>
+                    </button>
+                    <button type="button" class="example-card ex-warning" data-case="5">
+                        <span class="ex-tag warning">COM AVISOS</span>
+                        <strong>Sarah Chen</strong>
+                        <span>Score 700 | $90K/ano | Empréstimo $180K</span>
+                        <span class="ex-desc">Empréstimos ativos, renda no limite</span>
+                    </button>
+                </div>
+            </section>
+
+            <form id="loanForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="applicantName">Nome do solicitante</label>
+                        <input type="text" id="applicantName" required placeholder="ex.: Alice Brown">
+                    </div>
+                    <div class="form-group">
+                        <label for="creditScore">Score de crédito</label>
+                        <input type="number" id="creditScore" min="300" max="850" required placeholder="300 - 850">
+                    </div>
+                    <div class="form-group">
+                        <label for="annualIncome">Renda anual ($)</label>
+                        <input type="number" id="annualIncome" min="0" step="1000" required placeholder="ex.: 120000">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthlyDebt">Dívida mensal ($)</label>
+                        <input type="number" id="monthlyDebt" min="0" step="100" required placeholder="ex.: 1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="requestedLoanAmount">Valor solicitado ($)</label>
+                        <input type="number" id="requestedLoanAmount" min="0" step="1000" required placeholder="ex.: 200000">
+                    </div>
+                    <div class="form-group">
+                        <label for="employmentYears">Anos de emprego</label>
+                        <input type="number" id="employmentYears" min="0" step="0.5" required placeholder="ex.: 6">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="hasExistingLoans">
+                            Possui empréstimos ativos
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="isFlaggedForFraud">
+                            Sinalizado como fraude
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Avaliar proposta</span>
+                    <span class="btn-loading" hidden>Processando...</span>
+                </button>
+            </form>
+
+            <div id="result" class="result" hidden>
+                <div id="resultHeader" class="result-header">
+                    <span id="resultIcon" class="result-icon"></span>
+                    <h2 id="resultTitle"></h2>
+                </div>
+                <div class="result-details">
+                    <p><strong>ID da proposta:</strong> <span id="applicationId"></span></p>
+                    <p><strong>Solicitante:</strong> <span id="resultApplicantName"></span></p>
+                </div>
+                <div id="rejectionSection" class="section rejection" hidden>
+                    <h3>Motivos da reprovação</h3>
+                    <ul id="rejectionList"></ul>
+                </div>
+                <div id="warningSection" class="section warning" hidden>
+                    <h3>Avisos</h3>
+                    <ul id="warningList"></ul>
+                </div>
+                <div id="systemErrorSection" class="section warning" hidden>
+                    <h3>Análise não concluída</h3>
+                    <ul id="systemErrorList"></ul>
+                </div>
+            </div>
+
+            <div id="error" class="error" hidden>
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Loan Eligibility System</h1>
+            <p class="subtitle">Pipeline Pattern Demo</p>
+        </header>
+
+        <main>
+            <section class="examples">
+                <h2>Demo Cases</h2>
+                <div class="example-grid">
+                    <button type="button" class="example-card ex-rejected" data-case="0">
+                        <span class="ex-tag rejected">REJECTED</span>
+                        <strong>John Doe</strong>
+                        <span>Credit 550 | $30K/yr | Loan $250K</span>
+                        <span class="ex-desc">Low credit score &amp; insufficient income</span>
+                    </button>
+                    <button type="button" class="example-card ex-rejected" data-case="1">
+                        <span class="ex-tag rejected">REJECTED</span>
+                        <strong>Jane Smith</strong>
+                        <span>Credit 720 | $85K/yr | Loan $200K</span>
+                        <span class="ex-desc">Flagged for fraud</span>
+                    </button>
+                    <button type="button" class="example-card ex-warning" data-case="2">
+                        <span class="ex-tag warning">WARNINGS</span>
+                        <strong>Bob Johnson</strong>
+                        <span>Credit 650 | $75K/yr | Loan $150K</span>
+                        <span class="ex-desc">Borderline credit, short employment</span>
+                    </button>
+                    <button type="button" class="example-card ex-approved" data-case="3">
+                        <span class="ex-tag approved">APPROVED</span>
+                        <strong>Alice Brown</strong>
+                        <span>Credit 780 | $120K/yr | Loan $200K</span>
+                        <span class="ex-desc">Excellent profile, fully approved</span>
+                    </button>
+                    <button type="button" class="example-card ex-rejected" data-case="4">
+                        <span class="ex-tag rejected">REJECTED</span>
+                        <strong>Mike Wilson</strong>
+                        <span>Credit 680 | $45K/yr | Loan $300K</span>
+                        <span class="ex-desc">High DTI ratio &amp; excessive loan amount</span>
+                    </button>
+                    <button type="button" class="example-card ex-warning" data-case="5">
+                        <span class="ex-tag warning">WARNINGS</span>
+                        <strong>Sarah Chen</strong>
+                        <span>Credit 700 | $90K/yr | Loan $180K</span>
+                        <span class="ex-desc">Existing loans, borderline income</span>
+                    </button>
+                </div>
+            </section>
+
+            <form id="loanForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="applicantName">Applicant Name</label>
+                        <input type="text" id="applicantName" required placeholder="e.g. Alice Brown">
+                    </div>
+                    <div class="form-group">
+                        <label for="creditScore">Credit Score</label>
+                        <input type="number" id="creditScore" min="300" max="850" required placeholder="300 - 850">
+                    </div>
+                    <div class="form-group">
+                        <label for="annualIncome">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" min="0" step="1000" required placeholder="e.g. 120000">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthlyDebt">Monthly Debt ($)</label>
+                        <input type="number" id="monthlyDebt" min="0" step="100" required placeholder="e.g. 1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="requestedLoanAmount">Requested Loan Amount ($)</label>
+                        <input type="number" id="requestedLoanAmount" min="0" step="1000" required placeholder="e.g. 200000">
+                    </div>
+                    <div class="form-group">
+                        <label for="employmentYears">Employment Years</label>
+                        <input type="number" id="employmentYears" min="0" step="0.5" required placeholder="e.g. 6">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="hasExistingLoans">
+                            Has Existing Loans
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="isFlaggedForFraud">
+                            Flagged for Fraud
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Evaluate Application</span>
+                    <span class="btn-loading" hidden>Processing...</span>
+                </button>
+            </form>
+
+            <div id="result" class="result" hidden>
+                <div id="resultHeader" class="result-header">
+                    <span id="resultIcon" class="result-icon"></span>
+                    <h2 id="resultTitle"></h2>
+                </div>
+                <div class="result-details">
+                    <p><strong>Application ID:</strong> <span id="applicationId"></span></p>
+                    <p><strong>Applicant:</strong> <span id="resultApplicantName"></span></p>
+                </div>
+                <div id="rejectionSection" class="section rejection" hidden>
+                    <h3>Rejection Reasons</h3>
+                    <ul id="rejectionList"></ul>
+                </div>
+                <div id="warningSection" class="section warning" hidden>
+                    <h3>Warnings</h3>
+                    <ul id="warningList"></ul>
+                </div>
+            </div>
+
+            <div id="error" class="error" hidden>
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
