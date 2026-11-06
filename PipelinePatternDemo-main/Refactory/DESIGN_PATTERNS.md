@@ -183,3 +183,26 @@ O `LoanEvaluationRequest` tem `[Required]`, `[StringLength]` e `[Range]`, e o `P
 - **API:** integração com `WebApplicationFactory<Program>`: aprovada, reprovada e 400 de validação.
 
 Rodar: `dotnet test PipelinePatternDemo.slnx`
+
+---
+
+## E sem o Pipeline? (`PipelinePatternDemo.SemPipeline`)
+
+Para comparar, existe um segundo console com **as mesmas regras, os mesmos dados e as mesmas decisões**, mas implementado do jeito tradicional: uma classe `LoanEligibilityChecker` com um único método cheio de `if/else` e `return`.
+
+```bash
+dotnet run --project PipelinePatternDemo.SemPipeline
+```
+
+Os comentários `⚠️ DOR` no código mostram onde a abordagem começa a pesar:
+
+| Situação                     | Sem Pipeline                          | Com Pipeline                          |
+|------------------------------|---------------------------------------|---------------------------------------|
+| Adicionar regra nova         | Editar o método gigante               | Nova classe + 1 linha no DI           |
+| Mudar a ordem                | Recortar e colar blocos               | Trocar o `Order`                      |
+| Testar uma regra sozinha     | Não dá: a proposta passa por todas    | Testa a classe isolada                |
+| Erro técnico numa etapa      | Derruba tudo, ou try/catch espalhado  | Tratado em um lugar (`PendingReview`) |
+| Parar na primeira reprovação | `return` em cada bloco                | Um `if` no pipeline                   |
+| Time mexendo em paralelo     | Conflito de merge no mesmo arquivo    | Cada pessoa na sua regra              |
+
+**Sendo justo:** para 2 ou 3 regras que quase nunca mudam, a versão sem padrão é mais simples e está ótima. O Pipeline compensa quando as regras são muitas, mudam com frequência ou variam por produto ou canal.

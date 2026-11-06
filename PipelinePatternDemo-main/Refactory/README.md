@@ -16,6 +16,12 @@ dotnet run --project PipelinePatternDemo.Api
 
 # Ou rodar a demo no console
 dotnet run --project PipelinePatternDemo
+
+# Comparação: o mesmo sistema SEM o Pipeline Pattern (if/else em uma classe só)
+dotnet run --project PipelinePatternDemo.SemPipeline
+
+# Testes
+dotnet test PipelinePatternDemo.slnx
 ```
 
 - Front-end: `http://localhost:4520`
@@ -37,6 +43,11 @@ PipelinePatternDemo/             # Biblioteca principal - implementação do Pip
 │   ├── DebtToIncomeRatioRule.cs # Índice de endividamento (Order: 4)
 │   └── FraudCheckRule.cs        # Verificação de fraude (Order: 5)
 └── Services/LoanEligibilityService.cs
+
+PipelinePatternDemo.SemPipeline/ # Mesmo sistema sem o padrão, para comparação
+└── Services/LoanEligibilityChecker.cs # Um método com todas as regras em if/else
+
+PipelinePatternDemo.Tests/       # Testes xUnit (regras, pipeline e API)
 
 PipelinePatternDemo.Api/         # Projeto Web API
 ├── Program.cs                   # Minimal API + DI + Scalar
